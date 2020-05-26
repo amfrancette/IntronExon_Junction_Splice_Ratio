@@ -44,11 +44,12 @@ Execute ```make help```  or simply ```make```  to see a list of options.
    passesCutoff <- (apply(totalCounts[,3:(2+number_of_samples)], 1, FUN=median)) >= depthCutoff
 
 4. Visualize IEJR if you wish. Example ggplot2 commands are provided in src/calculateIEJR.R which analyze data from Barass et al., 2015 (doi: 10.1186/s13059-015-0848-1). IEJR shows how changing 4tU labeling times for nascent RNAs captures more and more unspliced reads. 
-    ![Barass summary data](imgs/Barass_IEJR_density.pdf)
+    ![Barass summary data](imgs/Barass_IEJR_density.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Dependencies
 Applications required for this analysis include bedtools (v2.28.0). 
+
 R Packages required for this analysis include tidyverse, dyplr, here, and ggplot2.

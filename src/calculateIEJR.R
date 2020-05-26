@@ -44,7 +44,7 @@ IEJR_avg <- cbind(totalCounts_filt[,1:2], rowMeans(IEJR[,3:5]),
 colnames(IEJR_avg)[3:6] <- c("1.5min", "2.5min", "5min", "Total")
 
 # make biplots comparing replicates
-ggplot(IEJR, aes(x = `2point5min_Rep2`, y = `2point5min_Rep3`)) + geom_point(color = "black") +
+ggplot(IEJR, aes(x = `1point5min_Rep1`, y = `1point5min_Rep2`)) + geom_point(color = "black") +
   scale_x_continuous(name="1.5min", limits = c(0,1)) +
   scale_y_continuous(name="2.5min", limits = c(0,1)) +
   theme_grey(base_size = 15) +
@@ -116,7 +116,7 @@ dev.off
 # Generates Long-form table for easier plot building
 methodDiff_long <- pivot_longer(methodDif, -feature:-locus, names_to = "Condition", values_to = "log2fc" )
 
-pdf("imgs/Barass_methodDif_density.pdf")
+png("imgs/Barass_methodDif_density.png")
 ggplot(methodDiff_long[methodDiff_long$feature=="gene",], aes(x = `log2fc`, fill = `Condition`)) + 
   geom_density(color="black", alpha = 0.3) +
   labs(y="Density of Observations", x = "log2fc") +
