@@ -103,7 +103,7 @@ ggplot(IEJR[IEJR$feature=="gene",], aes(x = `Total_Rep2`)) + geom_density(color=
 # Generates Long-form table for easier plot building
 IEJR_avg_long <- pivot_longer(IEJR_avg, -feature:-locus, names_to = "Condition", values_to = "IEJR" )
 
-pdf("imgs/Barass_IEJR_density.pdf")
+png("imgs/Barass_IEJR_density.png")
 ggplot(IEJR_avg_long[IEJR_avg_long$feature=="gene",], aes(x = `IEJR`, fill = `Condition`)) + 
   geom_density(color="black", alpha = 0.3) +
   labs(y="Density of Observations", x = "IEJR Distributions by Condition") +
@@ -116,7 +116,7 @@ dev.off
 # Generates Long-form table for easier plot building
 methodDiff_long <- pivot_longer(methodDif, -feature:-locus, names_to = "Condition", values_to = "log2fc" )
 
-png("imgs/Barass_methodDif_density.png")
+pdf("imgs/Barass_methodDif_density.pdf")
 ggplot(methodDiff_long[methodDiff_long$feature=="gene",], aes(x = `log2fc`, fill = `Condition`)) + 
   geom_density(color="black", alpha = 0.3) +
   labs(y="Density of Observations", x = "log2fc") +
