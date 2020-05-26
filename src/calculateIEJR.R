@@ -45,8 +45,8 @@ colnames(IEJR_avg)[3:6] <- c("1.5min", "2.5min", "5min", "Total")
 
 # make biplots comparing replicates
 ggplot(IEJR, aes(x = `1point5min_Rep1`, y = `1point5min_Rep2`)) + geom_point(color = "black") +
-  scale_x_continuous(name="1.5min", limits = c(0,1)) +
-  scale_y_continuous(name="2.5min", limits = c(0,1)) +
+  scale_x_continuous(name="1point5min_Rep1", limits = c(0,1)) +
+  scale_y_continuous(name="1point5min_Rep2", limits = c(0,1)) +
   theme_grey(base_size = 15) +
   ggtitle("Comparing Replicates w/ Biplot") +
   theme(legend.position = "none") +
@@ -111,7 +111,7 @@ ggplot(IEJR_avg_long[IEJR_avg_long$feature=="gene",], aes(x = `IEJR`, fill = `Co
   theme(legend.background = element_rect()) +
   geom_vline(xintercept=0) + xlim(0, 1.2) + coord_cartesian(ylim=c(0, 4)) +
   scale_fill_manual(values=c("green", "yellow", "orange", "red"), labels = c("1.5 min 4tU", "2.5 min 4tU", "5 min 4tU", "Total RNA")) 
-dev.off
+dev.off()
 
 # Generates Long-form table for easier plot building
 methodDiff_long <- pivot_longer(methodDif, -feature:-locus, names_to = "Condition", values_to = "log2fc" )
