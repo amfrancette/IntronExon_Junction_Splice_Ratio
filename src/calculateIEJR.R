@@ -7,7 +7,7 @@ here::set_here()
 print(getwd())
 here::dr_here()
 
-sample_names <- c(as.matrix(read.csv("res/sample_names.txt", header = F, sep = "\n")))
+sample_names <- c(as.matrix(read.csv("res/sample_names.tab", header = F, sep = "\n")))
 totalCounts <- read.csv("res/totalSpliceJunctionCount.tab", header = F, sep = "\t")
 intronCounts <- read.csv("res/unsplicedSpliceJunctionCount.tab", header = F, sep = "\t")
 
