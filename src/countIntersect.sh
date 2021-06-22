@@ -26,7 +26,7 @@ cat res/featurenames.txt > res/unsplicedSpliceJunctionCount.tab
 for bamfile in `ls $bam_folder | grep -v "bai" | awk -F '[./]' '{print $1}'`
 do
 	# creates a txt file keeping track of order in which files are fed through this loop
-	echo $bamfile >> res/sample_names.txt
+	echo $bamfile >> res/sample_names.tab
 	# counts all reads (aligned sense with respect to the transcript [-s]) that touch the annotated splice site
 	bedtools coverage -s -counts -a intronBorder.gff -b $bam_folder/"$bamfile"*.bam | awk '{print $NF}' > res/"$bamfile"_total.tab
 	# counts only unspliced [--split] reads (aligned sense with respect to the transcript [-s]) that touch the annotated splice site
